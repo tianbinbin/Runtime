@@ -32,10 +32,16 @@
 
     //1.0  这是我们常写的 调用方法的形式
 //    [person eat];
-//    [person performSelector:@selector(eat)];
+    [person performSelector:@selector(eat)];
     
     //2.0  我们声明一个方法却还没来的及实现它的方法 如果commd + b 编译 是不会报错 因为 commd + b 编译的话 这个类还没有加载到内存中 所以这个类根本不知道这个方法是否实现
+    
+    // 不带参数
     [person TBTest];
+    
+    
+    // 带参数
+    [person performSelector:@selector(TBTest:) withObject:@"美女"];
     
     //3.0 消息发送  完全是 c 语言的
     // Xcode 5 之后 apple 就不建议使用底层的方法 我们直接调下面的方法的话是会报错的。我们需要关闭 enable strick checking 这个 底层消息检测

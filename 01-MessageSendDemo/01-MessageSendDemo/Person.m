@@ -11,10 +11,16 @@
 @implementation Person
 
 
-void TBeatFood(){
+void TBeatFood(id self,SEL _cmd){
 
-    NSLog(@"我要去吃东西");
+    NSLog(@"我要去吃东西 我调用了什么方法 %@----%@",self,NSStringFromSelector(_cmd));
 }
+
+void TBeatFood1(id self,SEL _cmd,id objc){
+
+     NSLog(@"我要去休息了 我调用了什么方法 %@",objc);
+}
+
 
 -(void)eat
 {
@@ -42,8 +48,13 @@ void TBeatFood(){
          */
         class_addMethod([Person class], sel, (IMP)TBeatFood, "v");
     
+        
     }
+    else if(sel == @selector(TBTest:)){
     
+    // 有参数的情况下
+        class_addMethod([Person class], sel, (IMP)TBeatFood1, "v@:@");
+    }
     
     
     return  [super resolveInstanceMethod:sel];

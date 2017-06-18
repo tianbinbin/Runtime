@@ -16,4 +16,7 @@
 
 -(void)TBTest;
 
+
+-(void)TBTest:(NSString *)str;
+
 @end
